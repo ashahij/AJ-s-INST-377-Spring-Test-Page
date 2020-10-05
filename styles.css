@@ -1,15 +1,37 @@
-/* || General setup */
 
 
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
 
-/* body {
+body {
   width: 960px;
   min-width: 800px;
   margin: 0 auto;
-} */
+  background-color: #DB7093;
+}
 
+.main-content {
+max-width: 100%;
+width: 100%;
+}
 /* || typography */
 
+.role {
+  font-family: Balsamiq Sans;
+}
+.image {
+ border: 1px solid black;
+ border-radius: 4px;
+}
+
+@media screen and (max-width: 1000px) {
+.image {
+  display: flex;
+  flex-direction: row;
+}
+}
 
 h1, h2, h3 {
   font-family: 'Lobster', cursive;
@@ -51,10 +73,18 @@ p, li {
   justify-content: space-between;
   align-items: center;
   padding-bottom: 15px;
+  background-color: #f2f2f2;
 }
 
-body > * {
-  background-color: rgb(255, 14, 14);
+@media screen and (max-width: 678px) {
+  .header {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+body {
+  
   padding: 1%;
 }
 
@@ -78,9 +108,36 @@ main, header, nav, article, aside, footer, section {
 
 .wrapper {
   display: flex;
-  flex-direction: column;
+
   align-items: center;
-  flex-wrap: wrap;
+}
+
+
+@media screen and (max-width: 678px) {
+  .content {
+    display: flex;
+    flex-direction: column !important;
+    width: 100%;
+  background-color: #d2d2d2;
+
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #d2d2d2;
+
+}
+
+
+.spiderman {
+  width: 320px;
+}
+
+.Work {
+  background-color: #FFFFFF;
 }
 
 
@@ -115,9 +172,3 @@ footer {
 
 }
 
-/* Not sure about this code */
-.img_class {
-  border-radius: 4px;
-  border: 1px solid rgb(103, 88, 238);
-  width: 100%;
-}
