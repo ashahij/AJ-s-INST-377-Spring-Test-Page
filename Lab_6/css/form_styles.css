@@ -1,0 +1,89 @@
+  
+  .header { 
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(14, 11, 36);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+  }
+  form {
+    /* Center the form on the page */
+    margin: 0 auto;
+    width: 400px;
+    
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  form li + li {
+    margin-top: 1em;
+  }
+  
+  label {
+    /* Uniform size & alignment */
+    display: block;
+    font-weight: bold;
+
+    width: 60px;
+    text-align: left;
+
+  }
+  
+  input, 
+  textarea {
+    /* To make sure that all text fields have the same font settings
+       By default, textareas have a monospace font */
+    font: 1em sans-serif;
+  
+    /* Uniform text field size */
+    width: 300px;
+    box-sizing: border-box;
+
+    /* Match form field borders */
+    border: 1px solid #999;
+  }
+  input[type=text]:focus {
+    width: 100%;
+    padding: 12px;
+    margin: 12px;
+    box-sizing: border-box;
+  }
+
+ 
+  
+  input:focus, 
+  textarea:focus {
+    /* Additional highlight for focused elements */
+    border-color: #000;
+  }
+  
+  textarea {
+    /* Align multiline text fields with their labels */
+    vertical-align: top;
+  
+    /* Provide space to type some text */
+    height: 5em;
+  }
+  
+  .button {
+    /* Align buttons with the text fields */
+    padding-left: 90px; /* same size as the label elements */
+  }
+  
+  button {
+    /* This extra margin represent roughly the same space as the space
+       between the labels and their text fields */
+    margin-top: 15px;
+
+  }
+
+  html {
+    background-color: #aee6ee;
+  }
