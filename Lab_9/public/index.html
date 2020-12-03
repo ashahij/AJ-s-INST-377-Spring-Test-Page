@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 9</title>
+    <script defer src="js/lab9script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <div class="flexbox-container">
+
+        <div class="flexbox-item">
+            <!--<form method="post" action="http://localhost:4000/task" id="postTaskForm">-->
+                <label for="taskName">Task Name:</label>
+                <input type="text" id="taskName" name="taskName"/>
+                <br>
+                <label for="taskDueDate">Start date:</label>
+                <input type="date" id="taskDueDate" id="taskDueDate" name="taskDueDate" min="2020-11-01" max="2022-12-31">
+                <button onclick="submitTask()" class="flexbox-button">Add new task</button>
+            <!--</form>-->
+            <p id="postTaskContent"></p>
+
+        </div>
+
+        <div class="flexbox-item">
+            <!--<form method="get" action="http://localhost:4000/task" id="getTaskForm">-->
+            <div>
+                <label for="name">Get Task Id:</label><br>
+            </div>
+            <div><input type="text" id="taskId" />
+            </div>
+
+            <div><button onclick="getTask()" class="flexbox-button">Get Task</button>
+            </div>
+            <div>
+                <p id="getTaskContent"></p>
+            </div>
+            <!--</form>-->
+        </div>
+
+        <div class="flexbox-item">
+            <div>
+                <label for="updateTaskId">Update Task Name for Task Id:</label><br>
+            </div>
+            <div><input type="text" id="updateTaskId" />
+            </div>
+            <label for="updateTaskName">New Task Name:</label><br>
+            <input type="text" id="updateTaskName" />
+
+            <button onclick="updateTask()" class="flexbox-button">Update Task</button>
+
+            <p id="updatedTaskContent"></p>
+
+        </div>
+
+        <div class="flexbox-item">
+
+            <label for="updateTaskId">Delete task. Task Id:</label><br>
+            <input type="text" id="deleteTaskId" />
+
+            <button onclick="deleteTask()" class="flexbox-button">Delete Task</button>
+
+            <p id="deleteTaskContent"></p>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

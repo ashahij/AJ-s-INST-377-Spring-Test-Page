@@ -1,0 +1,29 @@
+.flexbox-container{
+    display: flex;
+    background-color: #73bfeb;
+    flex-direction: column; 
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.flexbox-item{
+    display: flex;
+    min-height: 100px;
+    width : 50%;
+    flex: 1;
+    flex-direction: column; 
+    background-color: rgb(233, 243, 243) ;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    margin:10px;
+}
+
+.flexbox-button{
+    
+    flex: 1;
+    background-color: rgb(248, 244, 31) ;
+    text-align: center;
+    justify-content: center;
+    margin:10px;
+}
