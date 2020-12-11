@@ -1,6 +1,22 @@
 let express = require('express')
 let router = express.Router()
 let db = require('../database');
+//GET all task
+router.get('/allTasks', (req, res) => {
+
+    console.log("Get all tasks");
+    let sql = "select * from tasks";
+    db.all(sql, (err, row) => {
+      if (err) {
+        res.status(400).json({ "error": err.message });
+        return;
+      }
+      res.json({
+        "message": "success",
+        "data": row
+      })
+    });
+  })
 
 // Create a new task
 // POST localhost:<port>/task

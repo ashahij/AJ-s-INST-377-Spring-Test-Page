@@ -1,3 +1,5 @@
+
+
 /*
  ------ SUBMIT NEW TASK ------
 */
@@ -296,7 +298,109 @@ function submitNewPerson() {
     });
 
 }
+/*
+ ------ ADD NEW Group ------
+*/
+function submitNewGroup() {
 
+  console.log("Called submitNewGroup");
+  let name = document.getElementById("addName").value;
+
+  console.log("name:" + name);
+  data = { 'name': name };
+
+  //console.log(JSON.stringify(data))
+  let groupURL = "http://localhost:4000/group";
+  const fetchPromise = fetch(groupURL, {
+    method: 'POST', headers: {
+      'Content-Type': 'application/json'
+
+    }, body: JSON.stringify(data)
+  });
+
+  let groupId;
+  fetchPromise
+    .then((response) => {
+      return response.json();
+    })
+    .then((group) => {
+      console.log("Here POST group");
+      console.log(group);
+
+      let message = "ERROR";
+      if (typeof group.id !== "undefined") {
+        firstName = group.data.name;
+        groupId = group.id;
+        message = "Message: " + group.message + " name: " + name + "<br>groupId: " + groupId + "<br> ";
+      }
+      else if(typeof group !== "undefined"){
+        message = "Message: " + group.message ;
+      }
+      document.getElementById("postNewGroupContent").innerHTML = message;
+    })
+    .catch((err) => {
+      console.log(err);
+      document.getElementById("postNewGroupContent").innerHTML = "Invalid group : " + data.name;
+    });
+
+}
+
+/*const tasks = [];
+fetch("./allTasks")
+  .then(blob => blob.json())
+  .then(data => tasks.push(data));
+  */
+
+function findMatches(wordToMatch, tasks) {
+  return tasks.data.filter(task => {
+    const regex = new RegExp(wordToMatch, 'gi');
+    return task.taskName.match(regex) 
+  });
+}
+
+
+function displayMatches(e,tasks) {
+  const text = e.target.value
+  const matchArray = findMatches(text, tasks);
+  let html = matchArray.map(task => {
+    const regex = new RegExp(text, 'gi');
+    const taskName = task.taskName.replace(regex, `<span class="hl">${text}</span>`);
+   
+    return `
+      <li>
+        <span class="name">${taskName}</span>
+       
+      </li>
+    `;
+  });
+  if (text == 0){
+    html = []
+  }
+  return html;
+}
+
+/*const searchInput = document.querySelector('#searchTask');
+const suggestions = document.querySelector('#results');
+
+searchInput.addEventListener('change', displayMatches);
+searchInput.addEventListener('keyup', displayMatches);
+*/
+async function search(){
+ const data = await fetch("./allTasks")
+ const json = await data.json()
+ const searchInput = document.querySelector('#searchTask');
+ searchInput.addEventListener("input", (e)=>{
+const list = displayMatches(e,json).toString().replace(/,/g, "")
+const results = document.querySelector('#results');
+results.innerHTML= list
+
+
+
+ })
+
+
+
+}
 /*
    ------------   Code for onload of page ------------
    1) Fills out drop down boxes
@@ -342,6 +446,6 @@ async function getPageData(prepend = "") {
 window.onload = async function loadPage() {
   getPageData();
   getPageData("update");
-
+search()
 
 }
