@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 2 Test Page</title>
+    <script defer src="js/assignment2script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <div class="header">Assignment 2 - Template - Your name here</div>
+    <div class="flexbox-container">
+
+        <div class="flexbox-item">
+            -- Add New Task --
+            <label for="taskName">Task Name:</label>
+            <input type="text" id="taskName" name="taskName"/>
+            <br>
+            <div class = "flexbox-selction-container">
+                <div class="flexbox-item">
+                    <label for="group">Group:</label>
+
+                    <select name="group" id="group">
+                        <option value="0">None</option>
+                    </select>
+                </div>
+                <div class="flexbox-item">
+                    <label for="firstName">First Name:</label>
+
+                    <select name="firstName" id="firstName">
+                        <option value="0">None</option>
+                    </select>
+                </div>
+                <div class="flexbox-item">
+                    <label for="priority">Choose a priority:</label>
+
+                    <select name="priority" id="priority">
+                        <option value="1">1 - Highest</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4 - Lowest</option>
+                    </select>
+                </div>
+
+            </div>
+            <br>
+            <label for="taskDueDate">Due date:</label>
+            <input type="date" id="taskDueDate" id="taskDueDate" name="taskDueDate" min="2020-11-01" max="2022-12-31">
+            <button onclick="submitTask()" class="flexbox-button">Add new task</button>
+          
+            <p id="postTaskContent"></p>
+
+        </div>
+
+        <div class="flexbox-item">
+            <!--<form method="get" action="http://localhost:4000/task" id="getTaskForm">-->
+            <div>
+                <label for="name">Get Task Id:</label><br>
+            </div>
+            <div><input type="text" id="taskId" />
+            </div>
+
+            <div><button onclick="getTask()" class="flexbox-button">Get Task</button>
+            </div>
+            <div>
+                <p id="getTaskContent"></p>
+            </div>
+            <!--</form>-->
+        </div>
+
+        <div class="flexbox-item">
+            <div>
+                <label for="taskToUpdateId">Enter the Task ID to update then press 'Get Task' button:</label><br>
+            </div>
+            <div>
+                <input type="text" id="taskToUpdateId" />
+            </div>
+            <button onclick="getTaskToUpdate()" class="flexbox-button">Get Task</button>
+            <div>
+                <label for="updateTaskId">Task ID:</label><br>
+                <input type="text" id="updateTaskId" readonly/>
+                <br>
+                <label for="updateTaskName">Task Name:</label><br>
+                <input type="text" id="updateTaskName" />
+                <br>
+                <label for="updatefirstName">First Name:</label><br>
+                <select name="updatefirstName" id="updatefirstName">
+                    <option value="0">None</option>
+                </select>
+                <br>
+                <label for="updategroup">Group :</label><br>
+                <select name="updategroup" id="updategroup">
+                    <option value="0">None</option>
+                </select><br>
+                <label for="updateTaskDueDate">Due Date:</label><br>
+                <input type="date" id="updateTaskDueDate" name="updateTaskDueDate" min="2020-11-01" max="2022-12-31">
+                <br> 
+                <label for="updateTaskPriority">Task Priority</label><br> 
+                <input type="text" id="updateTaskPriority" name="updateTaskPriority" >
+                <br> 
+                <label for="updateTaskComplete">Task Complete</label><br> 
+                <select name="updateTaskComplete" id="updateTaskComplete">
+                    <option value="0">False</option>
+                    <option value="1">True</option>
+                </select>
+            
+                <br>
+                <button onclick="updateTask()" class="flexbox-button">Update Task</button>
+            </div>
+            <p id="updatedTaskContent"></p>
+
+        </div>
+
+        <div class="flexbox-item">
+
+            <label for="updateTaskId">Delete task. Task Id:</label><br>
+            <input type="text" id="deleteTaskId" />
+
+            <button onclick="deleteTask()" class="flexbox-button">Delete Task</button>
+
+            <p id="deleteTaskContent"></p>
+
+        </div>
+
+        <div class="flexbox-item">
+            -- Add New Person --
+            <label for="addFirstName">First Name:</label>
+            <input type="text" id="addFirstName" name="addFirstName"/>
+            <br>
+            <button onclick="submitNewPerson()" class="flexbox-button">Add new person</button>
+          
+            <p id="postNewPersonContent"></p>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
